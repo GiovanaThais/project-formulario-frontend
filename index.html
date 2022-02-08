@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script data-require="bootstrap@3.3.7" data-semver="3.3.7" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script data-require="angular.js@1.6.2" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="container-fluid" style="background-color:#2196F3;color:#fff;height:200px;text-align: center;">
+    <h1 id="title" style="color:white;" >Desafio Inventione</h1>
+    <h1 id="title" style="color:white;">Giovana Thais G Carvalho<h1>
+  </div>
+</head>
+
+<body>
+  <br>
+  <form action="listar_cadastro.html" method="get" >
+    <fieldset class="grupo" >
+        <div class="campo">
+          <label for="nome" ><strong> Nome: </strong></label>
+          <input type="text" class="form-control" name="nome" id="nome" placeholder="Insira seu Nome .." required>
+        </div>
+
+      <div class="campo">
+        <label for="sobrenome" ><strong> Sobrenome: </strong></label>
+        <input type="text" class="form-control" name="sobrenome" id="sobrenome" placeholder="Insira seu sobrenome.." required>
+      </div>
+
+      <div class="campo">
+        <label for="idade"><strong> Idade: </strong></label>
+        <input type='number'class="form-control" name="idade" id="idade" placeholder="Insira sua idade..." required>
+      </div>
+
+      <div class="campo">
+        <label for="data"> Data: </label>
+        <input type="date"  name="data" id="data">
+      </div>
+    <br>
+    </fieldset>
+    <div class="campo" >
+        <label id="sexo"><strong>Sexo: </strong></label>
+        
+        <label>
+          <input type="radio" name="masculino" value="masculino"> Masculino
+        </label>
+        <label>
+          <input type="radio" name="feminino" value="feminino"> Feminino
+        </label>
+    </div>
+    <br>
+  
+
+    <fieldset class="grupo">
+      <div id="check">
+        <label>Habilitar Segundo Painel: </label>
+        <input type="checkbox" id="chkPainel" name="painel" value="painel">
+        <label for="painel"> </label>
+          
+          <div id="divChkPainel" runat="server">
+            <p><label for="review">Seu comentário:</label> <small class="caracteres"></small></p>
+            <textarea rows="10" cols="100" name="chkPainel" id="chkPainel" placeholder="Este campo restornará um texto de até 10.000 chars." style="color:#000000"  class="caracteres"></textarea>
+            <button value="Submit" onClick="writeValues(form)" class="btn btn-info" >Apresentar </button>
+            Dados do Usuario:<span id="result"></span>
+          </div>
+      </div>
+
+      
+      
+    </fieldset>
+    <script src="script.js"></script>  
+  </form>
+  
+  <button type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" onClick="pr()" >Open Modal</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Dados do Usuario</h4>
+      </div>
+      <div class="modal-body">
+        <p>Nome: </p>       
+        <p type="text" class="form-control" id="resultado" value = "sobrenome"></p>
+        <p type="text" class="form-control" id="resultado" ></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+      <body>
+      <form action="PayslipServlet" method="get">
+          Name: <span id="result"></span> 
+          <br>          
+        </form>
+        <form>   
+        <br>       
+        <input type="button" value="Submit" onClick="pr()">
+        </form>
+        <script>
+        function pr() {
+          document.getElementById("resultado").innerHTML = "Nome: " + document.getElementById('nome').value + "- Sobrenome: " + document.getElementById('sobrenome').value + "- Idade: " + document.getElementById('idade').value + "- Data: " + document.getElementById('data').value + document.getElementById('divChkPainel').value  ;
+          }
+          </script>        
+</body>
+      <div>
+        
+        </div>
+      <br>
+    </body>
